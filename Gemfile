@@ -64,3 +64,5 @@ group :development do
   # gem "spring"
 end
 
+# Add rdoc
+gem 'rdoc', '~> 4.2', '>= 4.2.2'
