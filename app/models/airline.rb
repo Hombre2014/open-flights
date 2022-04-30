@@ -1,11 +1,19 @@
+# frozen_string_literal: true
+
 class Airline < ApplicationRecord
   has_many :reviews
 
-  before_create :slugify
+  validates :name, presence: true, length: { maximum: 255 }
 
-  def slugify
-    self.slug = name.parameterize
+  before_create -> (airline) do
+    airline.slug = airline.name.parameterize
   end
+
+  # before_create :slugify !!! The one below doesn't work
+
+  # def slugify
+  #   airline.slug = airline.name.parameterize
+  # end
 
   def avg_score
     reviews.average(:score).round(2).to_f

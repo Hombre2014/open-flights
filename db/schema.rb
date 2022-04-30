@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,27 +12,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_30_190911) do
+ActiveRecord::Schema[7.0].define(version: 20_220_430_190_911) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "airlines", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'airlines', force: :cascade do |t|
+    t.string 'name'
+    t.string 'image_url'
+    t.string 'slug'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "score"
-    t.bigint "airline_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["airline_id"], name: "index_reviews_on_airline_id"
+  create_table 'reviews', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.integer 'score'
+    t.bigint 'airline_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['airline_id'], name: 'index_reviews_on_airline_id'
   end
 
-  add_foreign_key "reviews", "airlines"
+  add_foreign_key 'reviews', 'airlines'
 end
